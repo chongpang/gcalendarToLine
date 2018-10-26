@@ -1,0 +1,16 @@
+
+<h1 mat-dialog-title>Lineへイベントを送信する</h1>
+<div mat-dialog-content class="content-width">
+    <mat-form-field>
+        <textarea class="memo-width" matInput [(ngModel)]="data.memo" placeholder="インベントメモ"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">やめる</button>
+    <button mat-button (click)="onSend()" cdkFocusInitial>送信する</button>
+</div>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

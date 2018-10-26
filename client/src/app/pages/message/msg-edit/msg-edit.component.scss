@@ -1,0 +1,24 @@
+.class-add-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.class-add-container > * {
+  width: 100%;
+}
+
+.basic-container {
+  padding: 5px;
+}
+
+.class-add-card {
+  max-width: 720px;
+  margin: 15px 1px 0px 1px;
+}
+
+.class-add-form {
+  display: flex;
+  flex-direction: column;
+}
+  
+  

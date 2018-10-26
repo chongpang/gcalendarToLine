@@ -1,0 +1,35 @@
+.setting-add-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-add-container > * {
+  width: 100%;
+}
+
+.basic-container {
+  padding: 5px;
+}
+
+.setting-add-card {
+  max-width: 720px;
+  margin: 15px 1px 0px 1px;
+}
+
+.setting-add-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+  
+  

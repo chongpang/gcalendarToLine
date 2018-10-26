@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+@import './app/core/footer/footer-theme';
+@import './app/pages/message/msg-list/msg-list-theme.component';
+
+@include mat-core();
+
+$xdd-theme-primary: mat-palette($mat-light-blue);
+$xdd-theme-accent:  mat-palette($mat-pink, A200, A100, A400);
+$xdd-theme-warn:    mat-palette($mat-deep-orange);
+$xdd-theme: mat-light-theme($xdd-theme-primary, $xdd-theme-accent, $xdd-theme-warn);
+
+
+@include angular-material-theme($xdd-theme);
+@include component-class-list-theme($xdd-theme);
+
+@include footer-theme($xdd-theme);
+
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-indigo);
+  $alternate-accent:  mat-palette($mat-yellow, 400);
+
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+
+  @include angular-material-theme($alternate-theme);
+}
+
+.primary-header {
+  background: mat-color($xdd-theme-primary);
+  padding-left: 20px;
+  h1 {
+    color: mat-color($xdd-theme-primary, default-contrast);
+  }
+}

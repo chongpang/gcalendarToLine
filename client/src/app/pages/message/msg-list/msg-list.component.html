@@ -1,0 +1,14 @@
+<div class="component-class-list">
+  <a *ngFor="let message of messages | async"
+     class="component-class-list-item">
+    <mat-card class="component-class-list-card">
+      <mat-card-title>{{message.message}}</mat-card-title>
+    </mat-card>
+  </a>
+  <a class="component-class-list-item"
+    [routerLink]="['../class/create']">
+    <mat-card class="component-class-list-card">
+      <mat-card-title>Create message</mat-card-title>
+    </mat-card>
+  </a>
+</div>

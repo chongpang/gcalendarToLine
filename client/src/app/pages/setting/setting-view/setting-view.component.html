@@ -1,0 +1,54 @@
+<!-- {{diagnostic}} -->
+<mat-card class="setting-add-card">
+  <div *ngIf="setting | async; let setting; else create">
+    <mat-card-content>
+        
+    <div class="setting-add-container basic-container">
+            <mat-form-field>
+                <input matInput style="display: none" >
+                <mat-checkbox disabled="" matInput [checked]= "setting.autoPost" placeholder="自動プッシュ" id="autoPost" [(ngModel)]="setting.autoPost" name="autoPost">自動プッシュON/OFF</mat-checkbox>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <input matInput readonly="readonly" placeholder="自動プッシュ時間" id="schPostTime" [(ngModel)]="setting.schPostTime" name="schPostTime">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input matInput readonly="readonly" placeholder="カレンダー開始時間" id="schStart" [(ngModel)]="setting.schStart" name="schStart">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input matInput readonly="readonly" placeholder="カレンダー終了時間" id="schEnd" [(ngModel)]="setting.schEnd" name="schEnd">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput readonly="readonly" placeholder="Line Channel Secret" id="lineChannelSecret" [(ngModel)]="setting.lineChannelSecret" name="lineChannelSecret">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input matInput readonly="readonly" placeholder="Line Channel Token" id="lineChannelToken" [(ngModel)]="setting.lineChannelToken" name="lineChannelToken">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput readonly="readonly" placeholder="Line User ID" id="lineUserId" [(ngModel)]="setting.lineUserId" name="lineUserId">
+            </mat-form-field>
+        </div>
+        
+    </mat-card-content>
+
+    <div *ngIf="settingId == null" class="button-row">
+        <a [routerLink]="['/setting/edit', setting._id]"><button mat-raised-button color="primary">編集</button></a>
+        <!-- <a (click)="send()" mat-raised-button color="primary">Line＠へ送信</a> -->
+        <a (click)="openDialog()" mat-raised-button color="primary">Line＠へ送信</a>
+    </div>
+    <div *ngIf="settingId != null" class="button-row">
+        <a [routerLink]="['/setting/edit',settingId]"><button mat-raised-button color="primary">編集</button></a>
+        <!-- <a (click)="send()" mat-raised-button color="primary">Line＠へ送信</a> -->
+        <a (click)="openDialog()" mat-raised-button color="primary">Line＠へ送信</a>
+    </div>
+</div>
+<ng-template #create>
+    <a [routerLink]="['/setting/add']"><button mat-raised-button color="primary">設定を作成する</button></a>
+</ng-template>
+</mat-card>
+    

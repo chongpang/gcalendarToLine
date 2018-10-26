@@ -1,0 +1,35 @@
+version: '2'
+services:
+  client:
+    container_name: client
+    image: node
+    tty: true
+    working_dir: /app
+    volumes:
+      - ./client:/app:cached
+    ports:
+      - "4200:4200"
+      - "49513:49513"
+    links:
+      - server
+  server:    
+    container_name: server
+    image: node
+    tty: true
+    working_dir: /app
+    volumes:
+      - ./server:/app:cached
+      - ./calendars:/calendars:cached
+    ports:
+      - "4000:4000"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    volumes:
+      - ./data:/data/db:cached
+    image: mongo
+    command: mongod --smallfiles
+    ports:
+      - "27017:27017"
+    

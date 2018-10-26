@@ -1,0 +1,34 @@
+<!-- {{diagnostic}} -->
+<mat-card class="class-add-card">
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" class="class-add-form" #classAddForm="ngForm">
+      <div class="class-add-container basic-container">
+          <!-- <mat-form-field>
+              <input matInput placeholder="班级ID" id="id" [(ngModel)]="model.id" name="id">
+            </mat-form-field> -->
+
+          <mat-form-field>
+            <input matInput placeholder="班级名称" id="title" [(ngModel)]="model.title" name="title">
+          </mat-form-field>
+      
+          <mat-form-field>
+            <textarea matInput placeholder="作者" id="author" [(ngModel)]="model.author" name="author"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+              <textarea matInput placeholder="话题" id="topic" [(ngModel)]="model.topic" name="topic"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+              <textarea matInput placeholder="班级描述" id="description" [(ngModel)]="model.description" name="description"></textarea>
+          </mat-form-field>
+          
+          <mat-form-field>
+              <textarea matInput placeholder="URL" id="url" [(ngModel)]="model.url" name="url"></textarea>
+          </mat-form-field>
+      </div>
+      <button type="submit" mat-raised-button color="primary">提交</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+  

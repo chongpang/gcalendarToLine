@@ -1,0 +1,35 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name demo.xueduoduo.io;
+#    root   /app/gcalendar-to-line/client/dist;
+
+location / {
+root   /home/ubuntu/gcalendar-to-line/client/dist;
+try_files $uri $uri/ /index.html;
+    }
+
+location /webhook {
+proxy_pass http://127.0.0.1:4000/webhook;
+    }
+
+location /push {
+proxy_pass http://127.0.0.1:4000/push;
+    }
+
+ location ~  ^/calendar(.*)$ {
+    root /home/ubuntu/gcalendar-to-line/calendars/;
+    rewrite ^/calendar(.*)$ $1 break;
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+}
+
+listen [::]:443 ssl ipv6only=on; # managed by Certbot
+listen 443 ssl; # managed by Certbot
+ssl_certificate /etc/letsencrypt/live/demo.xueduoduo.io/fullchain.pem; # managed by Certbot
+ssl_certificate_key /etc/letsencrypt/live/demo.xueduoduo.io/privkey.pem; # managed by Certbot
+include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}

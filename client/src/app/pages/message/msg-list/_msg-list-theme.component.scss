@@ -1,0 +1,11 @@
+@mixin component-class-list-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+  
+    .component-class-list-card-summary {
+      color: mat-color($foreground, secondary-text);
+    }
+  }

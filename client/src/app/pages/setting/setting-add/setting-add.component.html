@@ -1,0 +1,43 @@
+<!-- {{diagnostic}} -->
+<mat-card class="setting-add-card">
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" class="setting-add-form" #SettingAddForm="ngForm">
+      <div class="setting-add-container basic-container">
+          <mat-form-field>
+            <input matInput style="display: none" >
+            <mat-checkbox matInput placeholder="自動プッシュ" id="autoPost" [checked]= "model.autoPost" [(ngModel)]="model.autoPost" name="autoPost">自動プッシュON/OFF</mat-checkbox>
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput placeholder="自動プッシュ時間" id="schPostTime" [(ngModel)]="model.schPostTime" name="schPostTime"> 時 
+            </mat-form-field>
+
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker1" placeholder="カレンダー開始時間" id="schStart" [(ngModel)]="model.schStart" name="schStart">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="カレンダー終了時間" id="schEnd" [(ngModel)]="model.schEnd" name="schEnd">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Line Channel Secret" id="lineChannelSecret" [(ngModel)]="model.lineChannelSecret" name="lineChannelSecret">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Line Channel Token" id="lineChannelToken" [(ngModel)]="model.lineChannelToken" name="lineChannelToken">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Line User ID" id="lineUserId" [(ngModel)]="model.lineUserId" name="lineUserId">
+          </mat-form-field>
+      </div>
+      <button type="submit" mat-raised-button color="primary">保存</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+  

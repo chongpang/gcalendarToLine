@@ -1,0 +1,20 @@
+<mat-toolbar class="navbar-header" color="primary">
+  <span>
+    GCalendar to Line
+  </span>
+  <a (click)="goHome()" mat-button class="navbar-hide-small">Home</a>
+  <div class="flex-spacer"></div>
+  <a (click)="goSetting()" mat-button class="navbar-hide-small">設定 & 送信</a>
+  <div class="flex-spacer"></div>
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+  <button mat-button (click)="socialSignOut()">Sign out</button>  
+</mat-toolbar>
+<mat-toolbar class="navbar navbar-header navbar-show-small" color="primary">
+  <a (click)="goHome()" mat-button class="navbar-link">Home</a>
+  <div class="flex-spacer"></div>
+  <a (click)="goSetting()" mat-button class="navbar-link">設定 & 送信</a>
+  <div class="flex-spacer"></div>
+  <!-- This fills the remaining space of the current row -->
+  <!-- <span class="example-fill-remaining-space"></span> -->
+</mat-toolbar>

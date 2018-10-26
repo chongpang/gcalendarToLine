@@ -1,0 +1,18 @@
+<app-header></app-header>
+<router-outlet></router-outlet>
+<div *ngIf="url == '/dashboard'" class="canvas-center">
+    <canvas #myCanvas width="{{canvasW}}" height="{{canvasH}}"></canvas>
+    <div class="canvas-input">
+        幅 <input type="range" min="1" max="200" [(ngModel)]="rectW"/><br/>
+        高さ <input type="range" min="1" max="80" [(ngModel)]="rectH"/><br/>
+        塗りの色 <input type="color" [(ngModel)]="rectColor" placeholder="color" value="{{rectColor}}"/>
+    </div>
+</div>
+
+<!-- <div *ngFor="let event of events">
+    <mat-card>
+        <mat-card-title>{{event.summary}}</mat-card-title>
+    </mat-card>
+</div> -->
+
+<app-footer class="alternate-theme" color="primary"></app-footer>
