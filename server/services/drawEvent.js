@@ -43,18 +43,25 @@ module.exports = class DrawEvents{
               eStartPos = new Date(event.start.dateTime);
             }
     
-            if(tStart < this.maxEndTime){
-              // overlap
-              overlapCnt++;
-              currentX += 0 + 0.5 + this.rectW * overlapCnt;
-              
-            }else{
-              currentX = 0 + 0.5 + this.rectW / 2;
-              overlapCnt = 0;
-            }
-  
-            if(this.maxEndTime < tEnd){
+            if(this.maxEndTime == null){
               this.maxEndTime = tEnd;
+              overlapCnt = 0;
+              currentX = 0 + 0.5 + this.rectW / 2;
+            }else{
+    
+              if(tStart < this.maxEndTime){
+                // overlap
+                overlapCnt++;
+                currentX += 0 + 0.5 + this.rectW * overlapCnt;
+                
+              }else{
+                currentX = 0 + 0.5 + this.rectW / 2;
+                overlapCnt = 0;
+              }
+    
+              if(this.maxEndTime < tEnd){
+                this.maxEndTime = tEnd;
+              }
             }
           
             let sTmpEnd = (new Date(event.end.dateTime));
